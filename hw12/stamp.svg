@@ -40,22 +40,22 @@
   <!-- Your beautiful SVG code will end here -->
 
   
-  <rect x="20" y="50" width="9.665" height="9.665" stroke="blue" stroke-width="0.1" fill="none"/>
-  <text x="20.8" y="57.8" style="font-size:6pt;">錢</text>
+  <rect x="20" y="50" width="9.665" height="9.665" stroke="#6E2C00" stroke-width="0.1" fill="none"/>
+  <text x="20.8" y="57.8" style="font-size:6pt;" fill="#FFBF00">錢</text>
 
 
-  <rect x="29.665" y="50" width="4.8330" height="4.8330" stroke="blue" stroke-width="0.1" fill="none"/>
-  <text x="30.065" y="53.9" style="font-size:3pt;;" fill="blue">不</text>
-  <rect x="29.665" y="54.8330" width="4.8330" height="4.8330" stroke="blue" stroke-width="0.1" fill="none"/>
-  <text x="30.065" y="58.733" style="font-size:3pt;" fill="blue">沒</text>
+  <rect x="29.665" y="50" width="4.8330" height="4.8330" stroke="#6E2C00" stroke-width="0.1" fill="none"/>
+  <text x="30.065" y="53.9" style="font-size:3pt;;" fill="#FA8072">不</text>
+  <rect x="29.665" y="54.8330" width="4.8330" height="4.8330" stroke="#6E2C00" stroke-width="0.1" fill="none"/>
+  <text x="30.065" y="58.733" style="font-size:3pt;" fill="#FA8072" >沒</text>
 
-  <rect x="34.498" y="50" width="9.665" height="9.665" stroke="blue" stroke-width="0.1" fill="none"/>
-  <text x="35.298" y="57.8" style="font-size:6pt;">是</text>
+  <rect x="34.498" y="50" width="9.665" height="9.665" stroke="#6E2C00" stroke-width="0.1" fill="none"/>
+  <text x="35.298" y="57.8" style="font-size:6pt;" fill="#FA8072">是</text>
 
-  <rect x="44.163" y="50" width="4.8330" height="4.8330" stroke="blue" stroke-width="0.1" fill="none"/>
-  <text x="44.563" y="53.9" style="font-size:3pt;;" fill="blue">問</text>
-  <rect x="44.163" y="54.8330" width="4.8330" height="4.8330" stroke="blue" stroke-width="0.1" fill="none"/>
-  <text x="44.563" y="58.733" style="font-size:3pt;" fill="blue">題</text>
+  <rect x="44.163" y="50" width="4.8330" height="4.8330" stroke="#6E2C00" stroke-width="0.1" fill="none"/>
+  <text x="44.563" y="53.9" style="font-size:3pt;" fill="#FA8072">問</text>
+  <rect x="44.163" y="54.8330" width="4.8330" height="4.8330" stroke="#6E2C00" stroke-width="0.1" fill="none"/>
+  <text x="44.563" y="58.733" style="font-size:3pt;" fill="#FA8072">題</text>
 
   <text x="20" y="65" style="font-size:2pt;">錢不是問題，問題是沒錢</text>
 
