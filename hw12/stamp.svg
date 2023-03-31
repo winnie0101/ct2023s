@@ -39,25 +39,52 @@
 
   <!-- Your beautiful SVG code will end here -->
 
+  <rect x="20" y="45.167" width="4.8330" height="4.8330" stroke="#6E2C00" stroke-width="0.1" fill="none"/>
+  <text x="21.6" y="49.067" style="font-size:3pt;;" fill="#F86706">$</text>
+  <rect x="24.833" y="45.167" width="4.8330" height="4.8330" stroke="#6E2C00" stroke-width="0.1" fill="none"/>
+  <text x="26.433" y="49.067" style="font-size:3pt;;" fill="#F86706">$</text>
+  <rect x="29.666" y="45.167" width="4.8330" height="4.8330" stroke="#6E2C00" stroke-width="0.1" fill="none"/>
+  <text x="31.266" y="49.067" style="font-size:3pt;;" fill="#F86706">$</text>
+  <rect x="34.499" y="45.167" width="4.8330" height="4.8330" stroke="#6E2C00" stroke-width="0.1" fill="none"/>
+  <text x="36.099" y="49.067" style="font-size:3pt;;" fill="#F86706">$</text>
+  <rect x="39.332" y="45.167" width="4.8330" height="4.8330" stroke="#6E2C00" stroke-width="0.1" fill="none"/>
+  <text x="40.932" y="49.067" style="font-size:3pt;;" fill="#F86706">$</text>
+  <rect x="44.165" y="45.167" width="4.8330" height="4.8330" stroke="#6E2C00" stroke-width="0.1" fill="none"/>
+  <text x="45.765" y="49.067" style="font-size:3pt;;" fill="#F86706">$</text>
   
+
   <rect x="20" y="50" width="9.665" height="9.665" stroke="#6E2C00" stroke-width="0.1" fill="none"/>
   <text x="20.8" y="57.8" style="font-size:6pt;" fill="#FFBF00">錢</text>
 
 
   <rect x="29.665" y="50" width="4.8330" height="4.8330" stroke="#6E2C00" stroke-width="0.1" fill="none"/>
-  <text x="30.065" y="53.9" style="font-size:3pt;;" fill="#FA8072">不</text>
+  <text x="30.065" y="53.9" style="font-size:3pt;;" fill="#A87746">不</text>
   <rect x="29.665" y="54.8330" width="4.8330" height="4.8330" stroke="#6E2C00" stroke-width="0.1" fill="none"/>
-  <text x="30.065" y="58.733" style="font-size:3pt;" fill="#FA8072" >沒</text>
+  <text x="30.065" y="58.733" style="font-size:3pt;" fill="#A87746" >沒</text>
 
   <rect x="34.498" y="50" width="9.665" height="9.665" stroke="#6E2C00" stroke-width="0.1" fill="none"/>
-  <text x="35.298" y="57.8" style="font-size:6pt;" fill="#FA8072">是</text>
+  <text x="35.298" y="57.8" style="font-size:6pt;" fill="#A87746">是</text>
 
   <rect x="44.163" y="50" width="4.8330" height="4.8330" stroke="#6E2C00" stroke-width="0.1" fill="none"/>
-  <text x="44.563" y="53.9" style="font-size:3pt;" fill="#FA8072">問</text>
+  <text x="44.563" y="53.9" style="font-size:3pt;" fill="#A87746">問</text>
   <rect x="44.163" y="54.8330" width="4.8330" height="4.8330" stroke="#6E2C00" stroke-width="0.1" fill="none"/>
-  <text x="44.563" y="58.733" style="font-size:3pt;" fill="#FA8072">題</text>
+  <text x="44.563" y="58.733" style="font-size:3pt;" fill="#A87746">題</text>
 
-  <text x="20" y="65" style="font-size:2pt;">錢不是問題，問題是沒錢</text>
+  <rect x="20" y="59.666" width="4.8330" height="4.8330" stroke="#6E2C00" stroke-width="0.1" fill="none"/>
+  <text x="21.6" y="63.566" style="font-size:3pt;;" fill="#F86706">$</text>
+  <rect x="24.833" y="59.666" width="4.8330" height="4.8330" stroke="#6E2C00" stroke-width="0.1" fill="none"/>
+  <text x="26.433" y="63.566" style="font-size:3pt;;" fill="#F86706">$</text>
+  <rect x="29.666" y="59.666" width="4.8330" height="4.8330" stroke="#6E2C00" stroke-width="0.1" fill="none"/>
+  <text x="31.266" y="63.566" style="font-size:3pt;;" fill="#F86706">$</text>
+  <rect x="34.499" y="59.666" width="4.8330" height="4.8330" stroke="#6E2C00" stroke-width="0.1" fill="none"/>
+  <text x="36.099" y="63.566" style="font-size:3pt;;" fill="#F86706">$</text>
+  <rect x="39.332" y="59.666" width="4.8330" height="4.8330" stroke="#6E2C00" stroke-width="0.1" fill="none"/>
+  <text x="40.932" y="63.566" style="font-size:3pt;;" fill="#F86706">$</text>
+  <rect x="44.165" y="59.666" width="4.8330" height="4.8330" stroke="#6E2C00" stroke-width="0.1" fill="none"/>
+  <text x="45.765" y="63.566" style="font-size:3pt;;" fill="#F86706">$</text>
+  
+
+  <text x="20" y="70" style="font-size:2pt;">錢不是問題，問題是沒錢</text>
 
 
   <rect x="60" y="50" width="4.8330" height="4.8330" stroke="blue" stroke-width="0.1" fill="none"/>
