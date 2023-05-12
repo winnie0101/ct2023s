@@ -1,40 +1,41 @@
 <!doctype html>
 <html lang="zh-Hant-TW">
+
 <head>
-<!-- Required meta tags -->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- D3, jquery -->
-<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" charset="utf-8"></script>
+  <!-- D3, jquery -->
+  <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" charset="utf-8"></script>
 
-<!-- Bootstrap CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
 
-<title>作品集 Portfolio</title>
-<!-- https://alexlenail.me/NN-SVG/about.html -->
-<link rel="icon" href="../hw00/favicon.svg"/>
-<style type="text/css">
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200&display=swap');
+  <title>作品集 Portfolio</title>
+  <!-- https://alexlenail.me/NN-SVG/about.html -->
+  <link rel="icon" href="../hw00/favicon.svg" />
+  <style type="text/css">
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200&display=swap');
 
-  table {
-    border-collapse: collapse;
-    border: 2px solid white; /* rgba(217,140,144,1) */
-    font-size:  12pt;
-    margin-left: auto;
-    margin-right: auto;
-  }
+    table {
+      border-collapse: collapse;
+      border: 2px solid white;
+      /* rgba(217,140,144,1) */
+      font-size: 12pt;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
-  td,
-  th {
-    border: 1px solid white;
-    padding: 2px 8px;
-  }
+    td,
+    th {
+      border: 1px solid white;
+      padding: 2px 8px;
+    }
 
-  .flipswitch
-  {
+    .flipswitch {
       position: relative;
       background: white;
       width: 120px;
@@ -42,250 +43,272 @@
       -webkit-appearance: initial;
       border-radius: 3px;
       -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-      outline:none;
+      outline: none;
       font-size: 14px;
       font-family: Trebuchet, Arial, sans-serif;
       font-weight: bold;
-      cursor:pointer;
-      border:1px solid #ddd;
-  }
-  .flipswitch:after
-  {
-      position:absolute;
-      top:5%;
-      display:block; 
-      line-height:16px;
-      width:45%;
-      height:90%;
-      background:#fff;
-      box-sizing:border-box;
-      text-align:center;
-      transition: all 0.3s ease-in 0s; 
-      color:rgba(159,53,58,1);
-      border:#888 1px solid;
-      border-radius:3px;
-  }
-  .flipswitch:after
-  {
-      left:2%;
+      cursor: pointer;
+      border: 1px solid #ddd;
+    }
+
+    .flipswitch:after {
+      position: absolute;
+      top: 5%;
+      display: block;
+      line-height: 16px;
+      width: 45%;
+      height: 90%;
+      background: #fff;
+      box-sizing: border-box;
+      text-align: center;
+      transition: all 0.3s ease-in 0s;
+      color: rgba(159, 53, 58, 1);
+      border: #888 1px solid;
+      border-radius: 3px;
+    }
+
+    .flipswitch:after {
+      left: 2%;
       content: "未完成";
-  }
-  .flipswitch:checked:after
-  {
-      left:53%;
+    }
+
+    .flipswitch:checked:after {
+      left: 53%;
       content: "完成";
-  }
+    }
 
-  body {
-    background-color: rgb(106, 76, 156); /* #6A4C9C */
-    color: rgb(106, 76, 156);
-    font-family: 'Noto Serif JP', serif;
-  }
+    body {
+      background-color: rgb(106, 76, 156);
+      /* #6A4C9C */
+      color: rgb(106, 76, 156);
+      font-family: 'Noto Serif JP', serif;
+    }
 
-  .container-fluid {
-    width:  90%;
-  }
+    .container-fluid {
+      width: 90%;
+    }
 
-  .hw12 {
-    border: 1px solid rgb(159, 53, 58);
-    margin-top: 8px;
-    margin-bottom: 8px;
-  }
+    .hw12 {
+      border: 1px solid rgb(159, 53, 58);
+      margin-top: 8px;
+      margin-bottom: 8px;
+    }
 
-  .twenty {
-    border: 1px solid #f9eced;
-    color: #f9eced;
-    padding: 8px;
-    font-size: 16pt;
-  }
+    .twenty {
+      border: 1px solid #f9eced;
+      color: #f9eced;
+      padding: 8px;
+      font-size: 16pt;
+    }
 
-  .twenty:hover {
+    .twenty:hover {
       box-shadow: 0 0 5px 3px #f9eced;
-      color: cyan; 
+      color: cyan;
       text-shadow: 0 0 6px #FFFFFF, 0 0 6px #000000;
-  }
-
-  @font-face {
-    font-family:'cjkFonts';
-    src: url(cjkFonts_allseto_v1.11.woff2) format('woff2');
-    /* https://cloudconvert.com/ttf-to-woff2 */
-  }
-
-  @font-face {
-    font-family:'FiraCode-Regular';
-    src: url(FiraCode-Regular.woff2) format('woff2');
-    /* https://worldofzero.com/posts/enable-font-ligatures-vscode/ */
-  }
-
-  .cjkFonts {
-    font-family: 'cjkFonts';
-    writing-mode: vertical-rl;
-  }
-
-  .cjkFontsH {
-    font-family: 'cjkFonts';
-  }
-
-  .FiraCode {
-    font-family: 'FiraCode-Regular';
-  }
-
-  .github-corner:hover 
-  .octo-arm {
-    animation: octocat-wave 560ms ease-in-out
-  }
-  @keyframes octocat-wave {
-    0%,100% {
-      transform:rotate(0)
-    }
-    20%,60% {
-      transform:rotate(-25deg)
-    }
-    40%,80% {
-      transform:rotate(10deg)
-    }
-  }
-  @media (max-width:500px) {
-    .github-corner:hover 
-    .octo-arm {
-      animation:none
     }
 
-    .github-corner 
-    .octo-arm {
+    @font-face {
+      font-family: 'cjkFonts';
+      src: url(cjkFonts_allseto_v1.11.woff2) format('woff2');
+      /* https://cloudconvert.com/ttf-to-woff2 */
+    }
+
+    @font-face {
+      font-family: 'FiraCode-Regular';
+      src: url(FiraCode-Regular.woff2) format('woff2');
+      /* https://worldofzero.com/posts/enable-font-ligatures-vscode/ */
+    }
+
+    .cjkFonts {
+      font-family: 'cjkFonts';
+      writing-mode: vertical-rl;
+    }
+
+    .cjkFontsH {
+      font-family: 'cjkFonts';
+    }
+
+    .FiraCode {
+      font-family: 'FiraCode-Regular';
+    }
+
+    .github-corner:hover .octo-arm {
       animation: octocat-wave 560ms ease-in-out
     }
-  }
 
-  /* 波浪 */
-  a {
-    color:yellow;
-    text-decoration: none; 
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 4'%3E%3Cpath fill='none' stroke='%23fff' d='M0 3.5c5 0 5-3 10-3s5 3 10 3 5-3 10-3 5 3 10 3'/%3E%3C/svg%3E") repeat-x 0 100%; 
-    background-size:20px auto; 
-    animation: waveMove 1s infinite linear;
-  }
+    @keyframes octocat-wave {
 
-  a:hover {
-    color:#f30;
-    text-decoration: none;
-    background: none;
-    animation: none;
-    text-decoration: underline;
-    padding:2px 0;
-  }
-  @keyframes waveMove {
-    from { background-position:0 100%; }
-    to { background-position:20px 100%; }
-  }
-  /* 波浪 */
-</style>
+      0%,
+      100% {
+        transform: rotate(0)
+      }
+
+      20%,
+      60% {
+        transform: rotate(-25deg)
+      }
+
+      40%,
+      80% {
+        transform: rotate(10deg)
+      }
+    }
+
+    @media (max-width:500px) {
+      .github-corner:hover .octo-arm {
+        animation: none
+      }
+
+      .github-corner .octo-arm {
+        animation: octocat-wave 560ms ease-in-out
+      }
+    }
+
+    /* 波浪 */
+    a {
+      color: yellow;
+      text-decoration: none;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 4'%3E%3Cpath fill='none' stroke='%23fff' d='M0 3.5c5 0 5-3 10-3s5 3 10 3 5-3 10-3 5 3 10 3'/%3E%3C/svg%3E") repeat-x 0 100%;
+      background-size: 20px auto;
+      animation: waveMove 1s infinite linear;
+    }
+
+    a:hover {
+      color: #f30;
+      text-decoration: none;
+      background: none;
+      animation: none;
+      text-decoration: underline;
+      padding: 2px 0;
+    }
+
+    @keyframes waveMove {
+      from {
+        background-position: 0 100%;
+      }
+
+      to {
+        background-position: 20px 100%;
+      }
+    }
+
+    /* 波浪 */
+  </style>
 </head>
+
 <body>
-<!-- https://alexlenail.me/NN-SVG/about.html -->
-<a href="https://github.com/你的帳號/ct2023s/" class="github-corner" aria-label="View source on Github">
-  <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#f9eced; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
-    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
-    <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="#f9eced" stroke="#6A4C9C" style="transform-origin: 130px 106px;" class="octo-arm"></path>
-    <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="#f9eced" stroke="#6A4C9C" class="octo-body"></path>
-  </svg>
-</a>
+  <!-- https://alexlenail.me/NN-SVG/about.html -->
+  <a href="https://github.com/你的帳號/ct2023s/" class="github-corner" aria-label="View source on Github">
+    <svg width="80" height="80" viewBox="0 0 250 250"
+      style="fill:#f9eced; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
+      <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+      <path
+        d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+        fill="#f9eced" stroke="#6A4C9C" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+      <path
+        d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+        fill="#f9eced" stroke="#6A4C9C" class="octo-body"></path>
+    </svg>
+  </a>
 
 
-<div class="container-fluid">
+  <div class="container-fluid">
 
-  <!-- ------------------------------------------------>
-  <div class="row hw12">
-    <div class="col-md-12 twenty">
-      <h3>字體設計與文字編碼   Computer Typography and Character Encoding</h3>
+    <!-- ------------------------------------------------>
+    <div class="row hw12">
+      <div class="col-md-12 twenty">
+        <h3>字體設計與文字編碼 Computer Typography and Character Encoding</h3>
+      </div>
     </div>
-  </div>
 
-  <!-- ------------------------------------------------>
-  <div class="row hw12">
-    <div class="col-md-12 twenty">
-      <h1>作業 01</h1>
+    <!-- ------------------------------------------------>
+    <div class="row hw12">
+      <div class="col-md-12 twenty">
+        <h1>作業 01</h1>
+      </div>
     </div>
-  </div>
 
-  <!-- ------------------------------------------------>
-  <div class="row hw12">
-    <div class="col-md-12 twenty">
-      若該次作業有程式碼，請放在 https://github.com/<span style="color:red;">你的帳號</span>/ct2023s/hw<span style="color:red;">01</span>/src/ 檔案夾。
+    <!-- ------------------------------------------------>
+    <div class="row hw12">
+      <div class="col-md-12 twenty">
+        若該次作業有程式碼，請放在 https://github.com/<span style="color:red;">你的帳號</span>/ct2023s/hw<span
+          style="color:red;">01</span>/src/ 檔案夾。
+      </div>
     </div>
-  </div>
 
-  <!-- ------------------------------------------------>
-  <div class="row hw12">
-    <div class="col-md-12 twenty">
-      <table>
-        <tr>
-          <th>總分</th>
-          <th>完成後打勾</th>
-          <th>配分</th>
-          <th>分項描述</th>
-        </tr>
-        <tr>
-          <td rowspan="7" id="myTotal"></td>
-          <td><input type="checkbox" class="flipswitch" id="myCheckbox1" checked></td>
-          <td id='m1'>2</td>
-          <td>作業 a</td>
-        </tr>
-        <tr>
-          <td><input type="checkbox" class="flipswitch" id="myCheckbox2" checked></td>
-          <td id='m2'>2</td>
-          <td>作業 b</td>
-        </tr>
-        <tr>
-          <td><input type="checkbox" class="flipswitch" id="myCheckbox3" checked></td>
-          <td id='m3'>2</td>
-          <td>作業 c</td>
-        </tr>
-        <tr>
-          <td><input type="checkbox" class="flipswitch" id="myCheckbox4" checked></td>
-          <td id='m4'>2</td>
-          <td>作業 d</td>
-        </tr>
-        <tr>
-          <td><input type="checkbox" class="flipswitch" id="myCheckbox5" checked></td>
-          <td id='m5'>2</td>
-          <td>作業 e</td>
-        </tr>
-      </table>
+    <!-- ------------------------------------------------>
+    <div class="row hw12">
+      <div class="col-md-12 twenty">
+        <table>
+          <tr>
+            <th>總分</th>
+            <th>完成後打勾</th>
+            <th>配分</th>
+            <th>分項描述</th>
+          </tr>
+          <tr>
+            <td rowspan="7" id="myTotal"></td>
+            <td><input type="checkbox" class="flipswitch" id="myCheckbox1" checked></td>
+            <td id='m1'>2</td>
+            <td>作業 a</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" class="flipswitch" id="myCheckbox2" checked></td>
+            <td id='m2'>2</td>
+            <td>作業 b</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" class="flipswitch" id="myCheckbox3" checked></td>
+            <td id='m3'>2</td>
+            <td>作業 c</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" class="flipswitch" id="myCheckbox4" checked></td>
+            <td id='m4'>2</td>
+            <td>作業 d</td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" class="flipswitch" id="myCheckbox5" checked></td>
+            <td id='m5'>2</td>
+            <td>作業 e</td>
+          </tr>
+        </table>
+      </div>
     </div>
-  </div>
 
-  <!-- ------------------------------------------------>
-  <div class="row hw12">
-    <div class="col-md-12 twenty">
-      這次作業讓我了解到，文字在電腦上可以透過不同種的編碼方式呈現，還可以直接在word上轉換成unicode編碼。也知道有許多人為了讓中文有更多完整的字體可用，利用AI技術基於瀨戶字體生成類似但更完整的中文字體，覺得很有趣。
+    <!-- ------------------------------------------------>
+    <div class="row hw12">
+      <div class="col-md-12 twenty">
+        這次作業讓我了解到，文字在電腦上可以透過不同種的編碼方式呈現，還可以直接在word上轉換成unicode編碼。也知道有許多人為了讓中文有更多完整的字體可用，利用AI技術基於瀨戶字體生成類似但更完整的中文字體，覺得很有趣。
+      </div>
     </div>
-  </div>
 
-  <!-- ------------------------------------------------>
-  <div class="row hw12">
-    <div class="col-md-12 twenty cjkFonts">
-      <h1> 「全瀨體」</h1>
+    <!-- ------------------------------------------------>
+    <div class="row hw12">
+      <div class="col-md-12 twenty cjkFonts">
+        <h1> 「全瀨體」</h1>
 
-      <ul>
-        <li>原文出處: cjkfonts 全瀨體 <a href="https://cjkfonts.io/blog/cjkfonts_allseto" target="_blank"> https://cjkfonts.io/blog/cjkfonts_allseto</a></li>
-        <li><cite>全瀨體，基於瀨戶字體，透過深度學習智能造字，產生的字體數量是跟思源黑體相同。</cite></li>
-        <li><cite>瀨戶字體，原作者將此字體用 SIL Open Font License 授權方法，可以商業使用，可以容許修改字體。</cite></li>
-      </ul>
+        <ul>
+          <li>原文出處: cjkfonts 全瀨體 <a href="https://cjkfonts.io/blog/cjkfonts_allseto" target="_blank">
+              https://cjkfonts.io/blog/cjkfonts_allseto</a></li>
+          <li><cite>全瀨體，基於瀨戶字體，透過深度學習智能造字，產生的字體數量是跟思源黑體相同。</cite></li>
+          <li><cite>瀨戶字體，原作者將此字體用 SIL Open Font License 授權方法，可以商業使用，可以容許修改字體。</cite></li>
+        </ul>
 
-      <h1> 「FiraCode」</h1>
+        <h1> 「FiraCode」</h1>
 
-      <ul>
-       <li>原文出處: <a href="https://worldofzero.com/posts/enable-font-ligatures-vscode/" target="_blank"> Enable Font Ligatures in VS Code </a></li>
-        <li><a href="https://github.com/tonsky/FiraCode" target="_blank">https://github.com/tonsky/FiraCode</a></li>
-      </ul>
+        <ul>
+          <li>原文出處: <a href="https://worldofzero.com/posts/enable-font-ligatures-vscode/" target="_blank"> Enable Font
+              Ligatures in VS Code </a></li>
+          <li><a href="https://github.com/tonsky/FiraCode" target="_blank">https://github.com/tonsky/FiraCode</a></li>
+        </ul>
 
 
+      </div>
     </div>
-  </div>
 
-  <!-- ------------------------------------------------>
-  <!--
+    <!-- ------------------------------------------------>
+    <!--
   <div class="row hw12">
     <div class="col-md-6 twenty">
       <video id="video1" style="width:100%;max-width:100%;" controls="">
@@ -301,307 +324,508 @@
   -->
 
 
-  <!-- ------------------------------------------------>
-  <div class="row hw12">
-    <div class="col-md-12 twenty cjkFontsH">
-      <h1>(a) Unicode 輸入法練習 </h1>
-      <a href="https://mothereff.in/utf-8" target="_blank">UTF-8 encoder/decoder</a>
-      <table>
-        <tr>
-          <th>字元</th>
-          <th>Unicode 十六進位 (Alt + x)<hr>Unicode 二進位 (按小算盤)</th>
-          <th>BIG-5 十六進位 (中文全字庫)</th>
-        </tr>
-        <tr>
-          <td>東</td>
-          <td>U+6771<hr>0110 0111 0111 0001</td>
-          <td>AA46</td> <!-- BIG-5 十六進位 -->
-        </tr>
-        <tr>
-          <td>🍰</td>
-          <td>U+1f370<hr>0001 1111 0011 0111 0000</td> <!-- Unicode 二進位 -->
-          <td>N/A</td> <!-- BIG-5 十六進位 -->
-        </tr>
-        <tr>
-          <td>黃 (君の名は)</td>
-          <td>U+9EC3<hr>1001 1110 1100 0011</td> <!-- Unicode 二進位 -->
-          <td>B6C0</td> <!-- BIG-5 十六進位 -->
-        </tr>
-        <tr>
-          <td>筱 (君の名は)</td>
-          <td>U+7B71<hr>0111 1011 0111 0001</td> <!-- Unicode 二進位 -->
-          <td>DF4E</td> <!-- BIG-5 十六進位 -->
-        </tr>
-        <tr>
-          <td>崴 (君の名は)</td>
-          <td>U+5D34<hr>0101 1101 0011 0100</td> <!-- Unicode 二進位 -->
-          <td>B451</td> <!-- BIG-5 十六進位 -->
-        </tr>
-        <tr>
-          <td>竜</td>
-          <td>U+7ADC<hr>0111 1010 1101 1100</td> <!-- Unicode 二進位 -->
-          <td>957C (BIG-5E)</td> <!-- BIG-5 十六進位 -->
-        </tr>
-        <tr>
-          <td>龙</td>
-          <td>U+9F99<hr>1001 1111 1001 1001</td> <!-- Unicode 二進位 -->
-          <td>N/A</td> <!-- BIG-5 十六進位 -->
-        </tr>
-        <tr>
-          <td>龍</td>
-          <td>U+9F8D<hr>1001 1111 1000 1101</td> <!-- Unicode 二進位 -->
-          <td>C073</td> <!-- BIG-5 十六進位 -->
-        </tr>
-        <tr>
-          <td>龖</td>
-          <td>U+9F96<hr>1001 1111 1001 0110</td> <!-- Unicode 二進位 -->
-          <td>N/A</td> <!-- BIG-5 十六進位 -->
-        </tr>
-        <tr>
-          <td>龘</td>
-          <td>U+9F98<hr>1001 1111 1001 1000</td> <!-- Unicode 二進位 -->
-          <td>F9D5</td> <!-- BIG-5 十六進位 -->
-        </tr>
-        <tr>
-          <td>𪚥</td> <!-- 新細明體-ExtB -->
-          <td>U+2A6A5<hr>0010 1010 0110 1010 0101</td> <!-- Unicode 二進位 -->
-          <td>N/A</td> <!-- BIG-5 十六進位 -->
-        </tr>
-      </table>
+    <!-- ------------------------------------------------>
+    <div class="row hw12">
+      <div class="col-md-12 twenty cjkFontsH">
+        <h1>(a) Unicode 輸入法練習 </h1>
+        <a href="https://mothereff.in/utf-8" target="_blank">UTF-8 encoder/decoder</a>
+        <table>
+          <tr>
+            <th>字元</th>
+            <th>Unicode 十六進位 (Alt + x)
+              <hr>Unicode 二進位 (按小算盤)
+            </th>
+            <th>BIG-5 十六進位 (中文全字庫)</th>
+          </tr>
+          <tr>
+            <td>東</td>
+            <td>U+6771
+              <hr>0110 0111 0111 0001
+            </td>
+            <td>AA46</td> <!-- BIG-5 十六進位 -->
+          </tr>
+          <tr>
+            <td>🍰</td>
+            <td>U+1f370
+              <hr>0001 1111 0011 0111 0000
+            </td> <!-- Unicode 二進位 -->
+            <td>N/A</td> <!-- BIG-5 十六進位 -->
+          </tr>
+          <tr>
+            <td>黃 (君の名は)</td>
+            <td>U+9EC3
+              <hr>1001 1110 1100 0011
+            </td> <!-- Unicode 二進位 -->
+            <td>B6C0</td> <!-- BIG-5 十六進位 -->
+          </tr>
+          <tr>
+            <td>筱 (君の名は)</td>
+            <td>U+7B71
+              <hr>0111 1011 0111 0001
+            </td> <!-- Unicode 二進位 -->
+            <td>DF4E</td> <!-- BIG-5 十六進位 -->
+          </tr>
+          <tr>
+            <td>崴 (君の名は)</td>
+            <td>U+5D34
+              <hr>0101 1101 0011 0100
+            </td> <!-- Unicode 二進位 -->
+            <td>B451</td> <!-- BIG-5 十六進位 -->
+          </tr>
+          <tr>
+            <td>竜</td>
+            <td>U+7ADC
+              <hr>0111 1010 1101 1100
+            </td> <!-- Unicode 二進位 -->
+            <td>957C (BIG-5E)</td> <!-- BIG-5 十六進位 -->
+          </tr>
+          <tr>
+            <td>龙</td>
+            <td>U+9F99
+              <hr>1001 1111 1001 1001
+            </td> <!-- Unicode 二進位 -->
+            <td>N/A</td> <!-- BIG-5 十六進位 -->
+          </tr>
+          <tr>
+            <td>龍</td>
+            <td>U+9F8D
+              <hr>1001 1111 1000 1101
+            </td> <!-- Unicode 二進位 -->
+            <td>C073</td> <!-- BIG-5 十六進位 -->
+          </tr>
+          <tr>
+            <td>龖</td>
+            <td>U+9F96
+              <hr>1001 1111 1001 0110
+            </td> <!-- Unicode 二進位 -->
+            <td>N/A</td> <!-- BIG-5 十六進位 -->
+          </tr>
+          <tr>
+            <td>龘</td>
+            <td>U+9F98
+              <hr>1001 1111 1001 1000
+            </td> <!-- Unicode 二進位 -->
+            <td>F9D5</td> <!-- BIG-5 十六進位 -->
+          </tr>
+          <tr>
+            <td>𪚥</td> <!-- 新細明體-ExtB -->
+            <td>U+2A6A5
+              <hr>0010 1010 0110 1010 0101
+            </td> <!-- Unicode 二進位 -->
+            <td>N/A</td> <!-- BIG-5 十六進位 -->
+          </tr>
+        </table>
+      </div>
     </div>
-  </div>
 
-  <!-- ------------------------------------------------>
-  <div class="row hw12">
-    <div class="col-md-12 twenty cjkFontsH">
-      <h1>(b) UTF-8 UTF-16 BE UTF-16 LE</h1>
+    <!-- ------------------------------------------------>
+    <div class="row hw12">
+      <div class="col-md-12 twenty cjkFontsH">
+        <h1>(b) UTF-8 UTF-16 BE UTF-16 LE</h1>
 
-      <table>
-        <tr>
-          <th>字元</th> <!-- 紺 https://nipponcolors.com/#kon --> <!-- 桔梗 https://nipponcolors.com/#kikyo --> 
-          <th colspan="1">Unicode</th>
-          <th colspan="4" style="background-color:#9F353A;">UTF-8 燕脂</th> <!-- 燕脂 https://nipponcolors.com/#enji -->
-          <th colspan="4" style="background-color:#005CAF;">UTF-16 BE 瑠璃</th> <!-- 瑠璃 https://nipponcolors.com/#ruri https://nipponcolors.com/#kon -->
-          <th colspan="4" style="background-color:#36563C;">UTF-16 LE 千歳緑</th> <!-- 千歳緑 https://nipponcolors.com/#chitosemidori -->
-        </tr>
-        <tr>
-          <td>東</td>
-          <td>U+6771<hr>0110 0111 0111 0001</td>
-          <td style="background-color:#9F353A;">E6<hr>1110 0110</td> <!-- UTF-8 -->
-          <td style="background-color:#9F353A;">9D<hr>1001 1101</td>
-          <td style="background-color:#9F353A;">B1<hr>1011 0001</td>
-          <td>xx<hr>xxxx xxxx</td>
-          <td style="background-color:#005CAF;">67<hr>0110 0111</td> <!-- UTF-16 BE -->
-          <td style="background-color:#005CAF;">71<hr>0111 0001</td>
-          <td>xx<hr>xxxx xxxx</td>
-          <td>xx<hr>xxxx xxxx</td>
-          <td style="background-color:#36563C;">71<hr>0111 0001</td> <!-- UTF-16 LE -->
-          <td style="background-color:#36563C;">67<hr>0110 0111</td>
-          <td>xx<hr>xxxx xxxx</td>
-          <td>xx<hr>xxxx xxxx</td>
-        </tr>       
-        <tr>
-          <td>黃</td>
-          <td>U+9EC3<hr>1001 1110 1100 0011</td>
-          <td style="background-color:#9F353A;">E9<hr>1110 1011</td> <!-- UTF-8 -->
-          <td style="background-color:#9F353A;">BB<hr>1011 1011</td>
-          <td style="background-color:#9F353A;">83<hr>1000 0011</td>
-          <td></td>
-          <td style="background-color:#005CAF;">9E<hr>1001 1110</td> <!-- UTF-16 BE -->
-          <td style="background-color:#005CAF;">C3<hr>0110 0011</td>
-          <td></td>
-          <td></td>
-          <td style="background-color:#36563C;">C3<hr>0110 0011</td> <!-- UTF-16 LE -->
-          <td style="background-color:#36563C;">9E<hr>1001 1110</td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>筱</td>
-          <td>U+7B71<hr>0111 1011 0111 0001</td>
-          <td style="background-color:#9F353A;">E7<hr>1110 0111</td> <!-- UTF-8 -->
-          <td style="background-color:#9F353A;">AD<hr>1010 1101</td>
-          <td style="background-color:#9F353A;">B1<hr>1011 0001</td>
-          <td></td>
-          <td style="background-color:#005CAF;">7B<hr>0111 1011</td> <!-- UTF-16 BE -->
-          <td style="background-color:#005CAF;">71<hr>0111 0001</td>
-          <td></td>
-          <td></td>
-          <td style="background-color:#36563C;">71<hr>0111 0001</td> <!-- UTF-16 LE -->
-          <td style="background-color:#36563C;">7B<hr>0111 1011</td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>崴</td>
-          <td>U+5D34<hr>0101 1101 0011 0100</td>
-          <td style="background-color:#9F353A;">E5<hr>1110 0101</td> <!-- UTF-8 -->
-          <td style="background-color:#9F353A;">B4<hr>1011 0100</td>
-          <td style="background-color:#9F353A;">B4<hr>1011 0100</td>
-          <td></td>
-          <td style="background-color:#005CAF;">34<hr>0011 0100</td> <!-- UTF-16 BE -->
-          <td style="background-color:#005CAF;">5D<hr>0101 1101</td>
-          <td></td>
-          <td></td>
-          <td style="background-color:#36563C;">5D<hr>0101 1101</td> <!-- UTF-16 LE -->
-          <td style="background-color:#36563C;">34<hr>0011 0100</td>
-          <td></td>
-          <td></td>
-        </tr>
-      </table>
+        <table>
+          <tr>
+            <th>字元</th> <!-- 紺 https://nipponcolors.com/#kon --> <!-- 桔梗 https://nipponcolors.com/#kikyo -->
+            <th colspan="1">Unicode</th>
+            <th colspan="4" style="background-color:#9F353A;">UTF-8 燕脂</th> <!-- 燕脂 https://nipponcolors.com/#enji -->
+            <th colspan="4" style="background-color:#005CAF;">UTF-16 BE 瑠璃</th>
+            <!-- 瑠璃 https://nipponcolors.com/#ruri https://nipponcolors.com/#kon -->
+            <th colspan="4" style="background-color:#36563C;">UTF-16 LE 千歳緑</th>
+            <!-- 千歳緑 https://nipponcolors.com/#chitosemidori -->
+          </tr>
+          <tr>
+            <td>東</td>
+            <td>U+6771
+              <hr>0110 0111 0111 0001
+            </td>
+            <td style="background-color:#9F353A;">E6
+              <hr>1110 0110
+            </td> <!-- UTF-8 -->
+            <td style="background-color:#9F353A;">9D
+              <hr>1001 1101
+            </td>
+            <td style="background-color:#9F353A;">B1
+              <hr>1011 0001
+            </td>
+            <td>xx
+              <hr>xxxx xxxx
+            </td>
+            <td style="background-color:#005CAF;">67
+              <hr>0110 0111
+            </td> <!-- UTF-16 BE -->
+            <td style="background-color:#005CAF;">71
+              <hr>0111 0001
+            </td>
+            <td>xx
+              <hr>xxxx xxxx
+            </td>
+            <td>xx
+              <hr>xxxx xxxx
+            </td>
+            <td style="background-color:#36563C;">71
+              <hr>0111 0001
+            </td> <!-- UTF-16 LE -->
+            <td style="background-color:#36563C;">67
+              <hr>0110 0111
+            </td>
+            <td>xx
+              <hr>xxxx xxxx
+            </td>
+            <td>xx
+              <hr>xxxx xxxx
+            </td>
+          </tr>
+          <tr>
+            <td>黃</td>
+            <td>U+9EC3
+              <hr>1001 1110 1100 0011
+            </td>
+            <td style="background-color:#9F353A;">E9
+              <hr>1110 1011
+            </td> <!-- UTF-8 -->
+            <td style="background-color:#9F353A;">BB
+              <hr>1011 1011
+            </td>
+            <td style="background-color:#9F353A;">83
+              <hr>1000 0011
+            </td>
+            <td></td>
+            <td style="background-color:#005CAF;">9E
+              <hr>1001 1110
+            </td> <!-- UTF-16 BE -->
+            <td style="background-color:#005CAF;">C3
+              <hr>0110 0011
+            </td>
+            <td></td>
+            <td></td>
+            <td style="background-color:#36563C;">C3
+              <hr>0110 0011
+            </td> <!-- UTF-16 LE -->
+            <td style="background-color:#36563C;">9E
+              <hr>1001 1110
+            </td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>筱</td>
+            <td>U+7B71
+              <hr>0111 1011 0111 0001
+            </td>
+            <td style="background-color:#9F353A;">E7
+              <hr>1110 0111
+            </td> <!-- UTF-8 -->
+            <td style="background-color:#9F353A;">AD
+              <hr>1010 1101
+            </td>
+            <td style="background-color:#9F353A;">B1
+              <hr>1011 0001
+            </td>
+            <td></td>
+            <td style="background-color:#005CAF;">7B
+              <hr>0111 1011
+            </td> <!-- UTF-16 BE -->
+            <td style="background-color:#005CAF;">71
+              <hr>0111 0001
+            </td>
+            <td></td>
+            <td></td>
+            <td style="background-color:#36563C;">71
+              <hr>0111 0001
+            </td> <!-- UTF-16 LE -->
+            <td style="background-color:#36563C;">7B
+              <hr>0111 1011
+            </td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>崴</td>
+            <td>U+5D34
+              <hr>0101 1101 0011 0100
+            </td>
+            <td style="background-color:#9F353A;">E5
+              <hr>1110 0101
+            </td> <!-- UTF-8 -->
+            <td style="background-color:#9F353A;">B4
+              <hr>1011 0100
+            </td>
+            <td style="background-color:#9F353A;">B4
+              <hr>1011 0100
+            </td>
+            <td></td>
+            <td style="background-color:#005CAF;">34
+              <hr>0011 0100
+            </td> <!-- UTF-16 BE -->
+            <td style="background-color:#005CAF;">5D
+              <hr>0101 1101
+            </td>
+            <td></td>
+            <td></td>
+            <td style="background-color:#36563C;">5D
+              <hr>0101 1101
+            </td> <!-- UTF-16 LE -->
+            <td style="background-color:#36563C;">34
+              <hr>0011 0100
+            </td>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+      </div>
     </div>
-  </div>
 
 
 
-  <!-- ------------------------------------------------>
-  <div class="row hw12">
-    <div class="col-md-12 twenty cjkFontsH">
-      <h1>(c) 漢字中的四疊字</h1>
-      <!--
+    <!-- ------------------------------------------------>
+    <div class="row hw12">
+      <div class="col-md-12 twenty cjkFontsH">
+        <h1>(c) 漢字中的四疊字</h1>
+        <!--
       <ul>
         <li><a href="" target="_blank"> </a></li>
         <li><a href="" target="_blank"> </a></li>
       </ul>
       -->
-      <ul>
-        <li><a href="https://zidian.qianp.com/sidiezi.html" target="_blank">四叠字大全 - 汉语字典 - 千篇国学</a></li>
-        <li><a href="https://zh.wikipedia.org/wiki/%E5%9B%9B%E5%8F%A0%E5%AD%97" target="_blank">四疊字</a></li>
-        <li><a href="https://www.compart.com/en/unicode/U+2A6A5" target="_blank">𪚥</a></li>
-        <li><a href="https://www.compart.com/en/unicode/U+28C3B" target="_blank">𨰻</a></li>
-      </ul>
+        <ul>
+          <li><a href="https://zidian.qianp.com/sidiezi.html" target="_blank">四叠字大全 - 汉语字典 - 千篇国学</a></li>
+          <li><a href="https://zh.wikipedia.org/wiki/%E5%9B%9B%E5%8F%A0%E5%AD%97" target="_blank">四疊字</a></li>
+          <li><a href="https://www.compart.com/en/unicode/U+2A6A5" target="_blank">𪚥</a></li>
+          <li><a href="https://www.compart.com/en/unicode/U+28C3B" target="_blank">𨰻</a></li>
+        </ul>
 
-      <table>
-        <tr>
-          <th>字元</th> <!-- 紺 https://nipponcolors.com/#kon --> <!-- 桔梗 https://nipponcolors.com/#kikyo --> 
-          <th colspan="1">Unicode</th>
-          <th colspan="4" style="background-color:#9F353A;">UTF-8 燕脂</th> <!-- 燕脂 https://nipponcolors.com/#enji -->
-          <th colspan="4" style="background-color:#005CAF;">UTF-16 BE 瑠璃</th> <!-- 瑠璃 https://nipponcolors.com/#ruri https://nipponcolors.com/#kon -->
-          <th colspan="4" style="background-color:#36563C;">UTF-16 LE 千歳緑</th> <!-- 千歳緑 https://nipponcolors.com/#chitosemidori -->
-        </tr>
-        <tr>
-          <td>東</td>
-          <td>U+6771<hr>0110 0111 0111 0001</td>
-          <td style="background-color:#9F353A;">E6<hr>1110 0110</td> <!-- UTF-8 -->
-          <td style="background-color:#9F353A;">9D<hr>1001 1101</td>
-          <td style="background-color:#9F353A;">B1<hr>1011 0001</td>
-          <td>xx<hr>xxxx xxxx</td>
-          <td style="background-color:#005CAF;">67<hr>0110 0111</td> <!-- UTF-16 BE -->
-          <td style="background-color:#005CAF;">71<hr>0111 0001</td>
-          <td>xx<hr>xxxx xxxx</td>
-          <td>xx<hr>xxxx xxxx</td>
-          <td style="background-color:#36563C;">71<hr>0111 0001</td> <!-- UTF-16 LE -->
-          <td style="background-color:#36563C;">67<hr>0110 0111</td>
-          <td>xx<hr>xxxx xxxx</td>
-          <td>xx<hr>xxxx xxxx</td>
-        </tr>       
-        <tr>
-          <td>𨰻</td>
-          <td>U+28C3B<hr>0010 1000 1100 0011 1011</td>
-          <td style="background-color:#9F353A;">F0<hr>1111 0000</td> <!-- UTF-8 -->
-          <td style="background-color:#9F353A;">A8<hr>1010 1000</td>
-          <td style="background-color:#9F353A;">B0<hr>1011 0000</td>
-          <td style="background-color:#9F353A;">BB<hr>1011 1011</td>
-          <td style="background-color:#005CAF;">D8<hr>1101 1000</td> <!-- UTF-16 BE -->
-          <td style="background-color:#005CAF;">63<hr>0110 0011</td>
-          <td style="background-color:#005CAF;">DC<hr>1101 1100</td>
-          <td style="background-color:#005CAF;">3B<hr>0011 1011</td>
-          <td style="background-color:#36563C;">63<hr>0110 0011</td> <!-- UTF-16 LE -->
-          <td style="background-color:#36563C;">D8<hr>1101 1000</td>
-          <td style="background-color:#36563C;">3B<hr>0011 1011</td>
-          <td style="background-color:#36563C;">DC<hr>1101 1100</td>
-        </tr>
-      </table>
+        <table>
+          <tr>
+            <th>字元</th> <!-- 紺 https://nipponcolors.com/#kon --> <!-- 桔梗 https://nipponcolors.com/#kikyo -->
+            <th colspan="1">Unicode</th>
+            <th colspan="4" style="background-color:#9F353A;">UTF-8 燕脂</th> <!-- 燕脂 https://nipponcolors.com/#enji -->
+            <th colspan="4" style="background-color:#005CAF;">UTF-16 BE 瑠璃</th>
+            <!-- 瑠璃 https://nipponcolors.com/#ruri https://nipponcolors.com/#kon -->
+            <th colspan="4" style="background-color:#36563C;">UTF-16 LE 千歳緑</th>
+            <!-- 千歳緑 https://nipponcolors.com/#chitosemidori -->
+          </tr>
+          <tr>
+            <td>東</td>
+            <td>U+6771
+              <hr>0110 0111 0111 0001
+            </td>
+            <td style="background-color:#9F353A;">E6
+              <hr>1110 0110
+            </td> <!-- UTF-8 -->
+            <td style="background-color:#9F353A;">9D
+              <hr>1001 1101
+            </td>
+            <td style="background-color:#9F353A;">B1
+              <hr>1011 0001
+            </td>
+            <td>xx
+              <hr>xxxx xxxx
+            </td>
+            <td style="background-color:#005CAF;">67
+              <hr>0110 0111
+            </td> <!-- UTF-16 BE -->
+            <td style="background-color:#005CAF;">71
+              <hr>0111 0001
+            </td>
+            <td>xx
+              <hr>xxxx xxxx
+            </td>
+            <td>xx
+              <hr>xxxx xxxx
+            </td>
+            <td style="background-color:#36563C;">71
+              <hr>0111 0001
+            </td> <!-- UTF-16 LE -->
+            <td style="background-color:#36563C;">67
+              <hr>0110 0111
+            </td>
+            <td>xx
+              <hr>xxxx xxxx
+            </td>
+            <td>xx
+              <hr>xxxx xxxx
+            </td>
+          </tr>
+          <tr>
+            <td>𪚥</td>
+            <td>U+2A6A5
+              <hr>10 1010 0110 1010 0101
+            </td>
+            <td style="background-color:#9F353A;">69
+              <hr>0110 1001
+            </td> <!-- UTF-8 -->
+            <td style="background-color:#9F353A;">D8
+              <hr>1101 1000
+            </td>
+            <td style="background-color:#9F353A;">A5
+              <hr>1010 0101
+            </td>
+            <td style="background-color:#9F353A;">DE
+              <hr>1101 1110
+            </td>
 
+            <td style="background-color:#005CAF;">D8
+              <hr>1101 1000
+            </td> <!-- UTF-16 BE -->
+            <td style="background-color:#005CAF;">69
+              <hr>0110 1001
+            </td>
+            <td style="background-color:#005CAF;">DE
+              <hr>1101 1110
+            </td>
+            <td style="background-color:#005CAF;">A5
+              <hr>1010 0101
+            </td>
+
+            <td style="background-color:#36563C;">F0
+              <hr>1111 0000
+            </td> <!-- UTF-16 LE -->
+            <td style="background-color:#36563C;">AA
+              <hr>1010 1010
+            </td>
+            <td style="background-color:#36563C;">9A
+              <hr>1001 1010
+            </td>
+            <td style="background-color:#36563C;">A5
+              <hr>1010 0101
+            </td>
+          </tr>
+          <tr>
+            <td>𨰻</td>
+            <td>U+28C3B
+              <hr>0010 1000 1100 0011 1011
+            </td>
+            <td style="background-color:#9F353A;">F0
+              <hr>1111 0000
+            </td> <!-- UTF-8 -->
+            <td style="background-color:#9F353A;">A8
+              <hr>1010 1000
+            </td>
+            <td style="background-color:#9F353A;">B0
+              <hr>1011 0000
+            </td>
+            <td style="background-color:#9F353A;">BB
+              <hr>1011 1011
+            </td>
+            <td style="background-color:#005CAF;">D8
+              <hr>1101 1000
+            </td> <!-- UTF-16 BE -->
+            <td style="background-color:#005CAF;">63
+              <hr>0110 0011
+            </td>
+            <td style="background-color:#005CAF;">DC
+              <hr>1101 1100
+            </td>
+            <td style="background-color:#005CAF;">3B
+              <hr>0011 1011
+            </td>
+            <td style="background-color:#36563C;">63
+              <hr>0110 0011
+            </td> <!-- UTF-16 LE -->
+            <td style="background-color:#36563C;">D8
+              <hr>1101 1000
+            </td>
+            <td style="background-color:#36563C;">3B
+              <hr>0011 1011
+            </td>
+            <td style="background-color:#36563C;">DC
+              <hr>1101 1100
+            </td>
+          </tr>
+        </table>
+
+      </div>
     </div>
-  </div>
 
-  <!-- ------------------------------------------------>
-  <div class="row hw12">
-    <div class="col-md-12 twenty cjkFontsH">
-      <h1>(d) 非Unicode環境 </h1>
-      <li>在非Unicode環境下，由於不同國家和地區採用的字元集不一致，很可能出現無法正常顯示所有字元的情況。</li>
-      <li>微軟使用了頁碼（Code age）轉換表的技術來過渡性地部分解決這一問題。</li>
-      <li>即通過指定的轉換表，將非Unicode的字元編碼，轉換為同一字元對應的系統內部使用的 Unicode編碼。</li>
-      <li>成功後，放一張圖在這裡。</li>
-      <img src="./d.png" width="768"/>
+    <!-- ------------------------------------------------>
+    <div class="row hw12">
+      <div class="col-md-12 twenty cjkFontsH">
+        <h1>(d) 非Unicode環境 </h1>
+        <li>在非Unicode環境下，由於不同國家和地區採用的字元集不一致，很可能出現無法正常顯示所有字元的情況。</li>
+        <li>微軟使用了頁碼（Code age）轉換表的技術來過渡性地部分解決這一問題。</li>
+        <li>即通過指定的轉換表，將非Unicode的字元編碼，轉換為同一字元對應的系統內部使用的 Unicode編碼。</li>
+        <li>成功後，放一張圖在這裡。</li>
+        <img src="./d.png" width="768" />
+      </div>
     </div>
-  </div>
 
 
 
-  <!-- ------------------------------------------------>
-  <div class="row hw12">
-    <div class="col-md-12 twenty cjkFontsH">
-      <h1>(e) Ligature 「合字」「連字」</h1>
-      <a href="https://github.com/tonsky/FiraCode">FiraCode</a>
-      <li class="">一般 &nbsp; &ensp; &emsp; &thinsp; &zwnj; &zwj; -> => == === != =/= <= >= <=> </li>
-      <li class="FiraCode">FiraCode -> => == === != =/= <= >= <=> </li>
-      <li>成功後，放一張圖在這裡。</li>
-      <img src="./e.png" width="768"/>
+    <!-- ------------------------------------------------>
+    <div class="row hw12">
+      <div class="col-md-12 twenty cjkFontsH">
+        <h1>(e) Ligature 「合字」「連字」</h1>
+        <a href="https://github.com/tonsky/FiraCode">FiraCode</a>
+        <li class="">一般 &nbsp; &ensp; &emsp; &thinsp; &zwnj; &zwj; -> => == === != =/= <=>= <=>
+        </li>
+        <li class="FiraCode">FiraCode -> => == === != =/= <=>= <=>
+        </li>
+        <li>成功後，放一張圖在這裡。</li>
+        <img src="./e.png" width="768" />
+      </div>
     </div>
-  </div>
 
 
 
-  <!-- ------------------------------------------------>
-  <div class="row hw12">
-    <div class="col-md-12 twenty cjkFontsH">
-      <h3>字體設計與文字編碼   Computer Typography and Character Encoding</h3>
+    <!-- ------------------------------------------------>
+    <div class="row hw12">
+      <div class="col-md-12 twenty cjkFontsH">
+        <h3>字體設計與文字編碼 Computer Typography and Character Encoding</h3>
+      </div>
     </div>
-  </div>
 
 
-  <!-- ------------------------------------------------>
+    <!-- ------------------------------------------------>
 
-  <!-- ------------------------------------------------>
+    <!-- ------------------------------------------------>
 
-<script>
-  $(function() {
-    var f = function() {
-      $(this).next().text($(this).is(':checked') ? '做完' : '未做完');
-    };
-    $('input').change(f).trigger('change');
-  });
+    <script>
+      $(function () {
+        var f = function () {
+          $(this).next().text($(this).is(':checked') ? '做完' : '未做完');
+        };
+        $('input').change(f).trigger('change');
+      });
 
-  d3.select("#myCheckbox1").on("change",update);
-  d3.select("#myCheckbox2").on("change",update);
-  d3.select("#myCheckbox3").on("change",update);
-  d3.select("#myCheckbox4").on("change",update);
-  d3.select("#myCheckbox5").on("change",update);
-  d3.select("#myCheckbox6").on("change",update);
-  d3.select("#myCheckbox7").on("change",update);
+      d3.select("#myCheckbox1").on("change", update);
+      d3.select("#myCheckbox2").on("change", update);
+      d3.select("#myCheckbox3").on("change", update);
+      d3.select("#myCheckbox4").on("change", update);
+      d3.select("#myCheckbox5").on("change", update);
+      d3.select("#myCheckbox6").on("change", update);
+      d3.select("#myCheckbox7").on("change", update);
 
-  update();
-  
-  function update(){
+      update();
 
-    var score = 0;
+      function update() {
 
-    if (d3.select("#myCheckbox1").property("checked")){
-      score += parseInt(d3.select('#m1').html());
-    }
+        var score = 0;
 
-    if (d3.select("#myCheckbox2").property("checked")){
-      score += parseInt(d3.select('#m2').html());   
-    }
+        if (d3.select("#myCheckbox1").property("checked")) {
+          score += parseInt(d3.select('#m1').html());
+        }
 
-    if (d3.select("#myCheckbox3").property("checked")){
-      score += parseInt(d3.select('#m3').html());   
-    }
+        if (d3.select("#myCheckbox2").property("checked")) {
+          score += parseInt(d3.select('#m2').html());
+        }
 
-    if (d3.select("#myCheckbox4").property("checked")){
-      score += parseInt(d3.select('#m4').html());   
-    }
+        if (d3.select("#myCheckbox3").property("checked")) {
+          score += parseInt(d3.select('#m3').html());
+        }
 
-    if (d3.select("#myCheckbox5").property("checked")){
-      score += parseInt(d3.select('#m5').html());   
-    }
+        if (d3.select("#myCheckbox4").property("checked")) {
+          score += parseInt(d3.select('#m4').html());
+        }
+
+        if (d3.select("#myCheckbox5").property("checked")) {
+          score += parseInt(d3.select('#m5').html());
+        }
 
 
-    d3.select("#myTotal").html(score);    
-  }
-</script>
+        d3.select("#myTotal").html(score);
+      }
+    </script>
 
 </body>
+
 </html>
